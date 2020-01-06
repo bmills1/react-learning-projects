@@ -1,27 +1,22 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
+import SafeAreaView from 'react-native-safe-area-view';
+import { StreamApp, FlatFeed } from 'expo-activity-feed';
 
 export default function LinksScreen() {
   return (
-    <ScrollView style={styles.container}>
-      {/**
-       * Go ahead and delete ExpoLinksView and replace it with your content;
-       * we just wanted to provide you with some helpful links.
-       */}
-      <ExpoLinksView />
-    </ScrollView>
+      <SafeAreaView style={{flex: 1}} forceInset={{ top: 'always' }}>
+        <StreamApp
+            apiKey="5rqsbgqvqphs"
+            appId="40273"
+            token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiZGRiMmFiMGItNTZkMy00NDJmLWE3YjAtNTM0MjE5MWI3YjI2In0.dzKctN-wfM2nvay_qL0Nz_mgXE17WPGeY8D-vaVLA60"
+        >
+          <FlatFeed />
+        </StreamApp>
+      </SafeAreaView>
   );
 }
 
 LinksScreen.navigationOptions = {
-  title: 'Links',
+  title: 'My Feed',
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 15,
-    backgroundColor: '#fff',
-  },
-});
