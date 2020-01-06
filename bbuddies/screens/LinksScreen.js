@@ -1,6 +1,18 @@
 import React from 'react';
 import SafeAreaView from 'react-native-safe-area-view';
-import { StreamApp, FlatFeed } from 'expo-activity-feed';
+import { StreamApp, FlatFeed, Activity,
+  LikeButton, } from 'expo-activity-feed';
+
+const CustomActivity = (props) => {
+  return (
+      <Activity
+          {...props}
+          Footer={
+            <LikeButton {...props} />
+          }
+      />
+  );
+};
 
 export default function LinksScreen() {
   return (
@@ -8,13 +20,13 @@ export default function LinksScreen() {
         <StreamApp
             apiKey="5rqsbgqvqphs"
             appId="40273"
-            token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiZGRiMmFiMGItNTZkMy00NDJmLWE3YjAtNTM0MjE5MWI3YjI2In0.dzKctN-wfM2nvay_qL0Nz_mgXE17WPGeY8D-vaVLA60"
+            token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiOWQ3NzY1NzItMDM1ZS00MzVmLTg4NjItYTM2MjcxOTYzMzcwIn0.B7k2F48XYfRW4R9Lo3D6qdYb_dOpoVesdD2u9iSuwEw"
         >
-          <FlatFeed />
+          <FlatFeed Activity={CustomActivity} />
         </StreamApp>
       </SafeAreaView>
   );
-}
+};
 
 LinksScreen.navigationOptions = {
   title: 'My Feed',
